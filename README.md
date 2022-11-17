@@ -19,17 +19,18 @@ windows: `Alt + insert`, Mac: `control + Enter`
 注意：可以在 keymap 中配置自己喜欢的快捷键，后续如果可以将默认自动设置好快捷键（InsertClass: command + \; PasteCss: control + option + v）。
 
 #### 最近更新
-* 2022.08.31  InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
-* 2022.08.4  2.0.7 兼容到 223 版本
+* 2022.11.11  2.1.1 InsertClass 默认绑定快捷键 \[ctrl/cmd + \\]。
+* 2022.08.31  2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
+* 2022.08.04  2.0.7 兼容到 223 版本
 * 2022.04.13  2.0.6 兼容到 221 版本
 * 2021.12.09  2.0.5 修复新版本 213 不可见的问题。
-* 2021.08.23  2.0.4 PasteCss 新增默认快捷键 ctrl(control) + alt(option) + v。
+* 2021.08.23  2.0.4 PasteCss 新增默认快捷键 \[ctrl/cmd + alt/option + v\]。
 * 2021.08.17  2.0.3 GoCss 修复 非驼峰式 无法跳转的 bug。
 
 ##### PS
 关于标准 class 名称是 .a-b-c 还是 .aBC 以往就一直存在争议，现在给出一些拙见：css modules 情况下，$style.xxx 驼峰更加符合编程思想同时也更加简洁；非 css modules 情况下，建议用 .a-b-c，另外 驼峰式 的 class 可以直接Ctrl/Command+鼠标左键 跳转到对应的 css class
 
-如果还想保持 驼峰式 可以到下载 [2.0.0](https://plugins.jetbrains.com/plugin/download?rel=true&updateId=131276) 版本
+如果还想保持 .a-b-c 可以点击下载 [2.0.0](https://plugins.jetbrains.com/plugin/download?rel=true&updateId=131276) 版本
 
 #### 功能介绍
 
@@ -66,6 +67,7 @@ windows: `Alt + insert`, Mac: `control + Enter`
 QQ:11563928
 
 #### 更新日志
+* 2.1.1 InsertClass 默认绑定快捷键 [ctrl/cmd \]
 * 2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
 * 2.0.7 兼容到 223 版本
 * 2.0.6 兼容到 221 版本
