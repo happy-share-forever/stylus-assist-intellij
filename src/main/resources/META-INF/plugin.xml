@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>vip.guco.stylusassist</id>
     <name>Stylus Assist</name>
-    <version>2.1.2</version>
+    <version>2.2.0</version>
     <vendor email="gucovip@gmail.com" url="https://github.com/gucovip/stylus-assist">MaiYa</vendor>
 
     <description><![CDATA[
@@ -41,6 +41,7 @@
 
     <change-notes><![CDATA[
     <ul>
+        <li>2.2.0 feat: InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`.</li>
         <li>2.1.2 chore: Just update version.</li>
         <li>2.1.1 InsertClass 默认绑定快捷键 [ctrl/cmd \]</li>
         <li>2.1.0 InsertClass 插入 class 时不再添加缩进。</li>

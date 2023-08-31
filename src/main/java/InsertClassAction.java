@@ -16,9 +16,7 @@ public class InsertClassAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         if (anActionEvent.getProject() == null) return;
-        // TODO: insert action logic here
-        //获取当前的编辑者
-
+        //获取当前的编辑器
         final Editor editor = anActionEvent.getRequiredData(CommonDataKeys.EDITOR);
 
         //获取当前的文件
@@ -36,8 +34,29 @@ public class InsertClassAction extends AnAction {
         String allContent = editor.getDocument().getText();
 
         if (selectedText == null) {
+            // 获取光标位置检测前后是非为""
+            int startIndex = selectionModel.getSelectionStart();
+            int endIndex = selectionModel.getSelectionEnd();
+            System.out.printf("start: %d, end: %d\n", startIndex, endIndex);
+            if (startIndex == endIndex && startIndex > 0) {
+                char beforeChar = allContent.charAt(startIndex -1);
+                char afterChar = allContent.charAt(startIndex);
+                System.out.printf("before: %c, after: %c\n", beforeChar, afterChar);
+                if (beforeChar == '"' && afterChar == '"') {
+                    insertString(editor, startIndex, "$style.");
+                    moveCaret(editor, startIndex + 7);
+                    return;
+                } else if (beforeChar == '.' && afterChar == '"') {
+                    // 此处应该终止执行
+                    return;
+                }
+            }
+            // 如果不是
             selectionModel.selectWordAtCaret(true);
             selectedText = selectionModel.getSelectedText();
+            if ("$style".equals(selectedText) || "\"".equals(selectedText)) {
+                return;
+            }
         }
 
         String insertClass = "." + Utils.formatClass(selectedText);
@@ -46,7 +65,7 @@ public class InsertClassAction extends AnAction {
         int endTag = allContent.indexOf("</style>");
         if (endTag == -1) {
             endTag = allContent.length() + 21;
-            WriteCommandAction.runWriteCommandAction(editor.getProject(), () -> document.insertString(allContent.length(), "<style lang=\"stylus\"></style>"));
+            insertString(editor, allContent.length(), "<style lang=\"stylus\"></style>");
         } else {
             Pattern pattern = Pattern.compile("<style[\\s\\S]*>([\\s\\S]*?)</style>");
             Matcher matcher = pattern.matcher(allContent);
@@ -56,7 +75,8 @@ public class InsertClassAction extends AnAction {
         }
         int newEndTag = endTag;
         String insertString = preInsertString;
-        WriteCommandAction.runWriteCommandAction(editor.getProject(), () -> document.insertString(newEndTag, insertString));
+        insertString(editor, newEndTag, insertString);
+
         assert currentPsiFile.getParent() != null;
         PsiFile targetPsiFile = currentPsiFile.getParent().findFile(currentFileName + ".vue");
         assert targetPsiFile != null;
@@ -69,7 +89,22 @@ public class InsertClassAction extends AnAction {
         assert targetEdit != null;
         ScrollingModel scrollingModel = targetEdit.getScrollingModel();
         scrollingModel.scrollTo(targetEdit.offsetToLogicalPosition(endTag + insertString.length() - 1), ScrollType.MAKE_VISIBLE);
-        CaretModel caretModel = targetEdit.getCaretModel();
-        caretModel.moveToOffset(endTag + insertString.length() - 1);
+        moveCaret(targetEdit, endTag + insertString.length() - 1);
+    }
+
+    /**
+     * 在原位置插入字符串
+     */
+    private void insertString(Editor editor, int newEndTag, String insertString) {
+        Document document = editor.getDocument();
+        WriteCommandAction.runWriteCommandAction(editor.getProject(), () -> document.insertString(newEndTag, insertString));
+    }
+
+    /**
+     * 移动光标到指定位置
+     */
+    private void moveCaret(Editor editor, int newEndTag) {
+        CaretModel caretModel = editor.getCaretModel();
+        caretModel.moveToOffset(newEndTag);
     }
 }
