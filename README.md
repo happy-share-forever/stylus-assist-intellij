@@ -19,6 +19,7 @@ windows: `Alt + insert`, Mac: `control + Enter`
 注意：可以在 keymap 中配置自己喜欢的快捷键，后续如果可以将默认自动设置好快捷键（InsertClass: command + \; PasteCss: control + option + v）。
 
 #### 最近更新
+* 2023.08.31  2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`
 * 2022.11.21  2.1.2 chore: Just update version.
 * 2022.11.11  2.1.1 InsertClass 默认绑定快捷键 \[ctrl/cmd + \\]。
 * 2022.08.31  2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
@@ -68,6 +69,7 @@ windows: `Alt + insert`, Mac: `control + Enter`
 QQ:11563928
 
 #### 更新日志
+* 2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`
 * 2.1.1 InsertClass 默认绑定快捷键 [ctrl/cmd \]
 * 2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
 * 2.0.7 兼容到 223 版本
