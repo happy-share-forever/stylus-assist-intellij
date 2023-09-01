@@ -19,15 +19,11 @@ windows: `Alt + insert`, Mac: `control + Enter`
 注意：可以在 keymap 中配置自己喜欢的快捷键，后续如果可以将默认自动设置好快捷键（InsertClass: command + \; PasteCss: control + option + v）。
 
 #### 最近更新
+* 2023.09.01  2.3.0 由于 sdk 升级导致启动时的报错，最低兼容版本提升到 222(2022.2.5)
 * 2023.08.31  2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`
 * 2022.11.21  2.1.2 chore: Just update version.
 * 2022.11.11  2.1.1 InsertClass 默认绑定快捷键 \[ctrl/cmd + \\]。
 * 2022.08.31  2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
-* 2022.08.04  2.0.7 兼容到 223 版本
-* 2022.04.13  2.0.6 兼容到 221 版本
-* 2021.12.09  2.0.5 修复新版本 213 不可见的问题。
-* 2021.08.23  2.0.4 PasteCss 新增默认快捷键 \[ctrl/cmd + alt/option + v\]。
-* 2021.08.17  2.0.3 GoCss 修复 非驼峰式 无法跳转的 bug。
 
 ##### PS
 关于标准 class 名称是 .a-b-c 还是 .aBC 以往就一直存在争议，现在给出一些拙见：css modules 情况下，$style.xxx 驼峰更加符合编程思想同时也更加简洁；非 css modules 情况下，建议用 .a-b-c，另外 驼峰式 的 class 可以直接Ctrl/Command+鼠标左键 跳转到对应的 css class
@@ -69,17 +65,11 @@ windows: `Alt + insert`, Mac: `control + Enter`
 QQ:11563928
 
 #### 更新日志
+* 2.3.0 由于 sdk 升级导致启动时的报错，最低兼容版本提升到 222(2022.2.5)
 * 2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`
 * 2.1.1 InsertClass 默认绑定快捷键 [ctrl/cmd \]
 * 2.1.0 InsertClass 插入 class 时不再添加缩进。如果还需要缩进，可以下载 2.0.7 版本。
-* 2.0.7 兼容到 223 版本
-* 2.0.6 兼容到 221 版本
-* 2.0.5 修复新版本 213 不可见的问题。
-* 2.0.4 PasteCss 新增默认快捷键 ctrl(control) + alt(option) + v。
-* 2.0.3 GoCss 修复 非驼峰式 无法跳转的 bug。
-* 2.0.2 GoCss 也将生成 驼峰式 的 class
-* 2.0.1 InsertClass 不再格式化为短横线间隔，而是驼峰式。GoCss 依然支持查找短横线间隔的class。
-* 2.0.0 调整整体代码架构兼容最新版的 IDE
+
 
 ##### 归档的日志
 [CHANGELOG_ARCHIVED.md](./CHANGELOG_ARCHIVED.md)

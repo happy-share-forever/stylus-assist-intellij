@@ -1,6 +1,14 @@
 # CHANGE LOG
 
 ## ARCHIVED
+* 2.0.7 兼容到 223 版本
+* 2.0.6 兼容到 221 版本
+* 2.0.5 修复新版本 213 不可见的问题。
+* 2.0.4 PasteCss 新增默认快捷键 ctrl(control) + alt(option) + v。
+* 2.0.3 GoCss 修复 非驼峰式 无法跳转的 bug。
+* 2.0.2 GoCss 也将生成 驼峰式 的 class
+* 2.0.1 InsertClass 不再格式化为短横线间隔，而是驼峰式。GoCss 依然支持查找短横线间隔的class。
+* 2.0.0 调整整体代码架构兼容最新版的 IDE
 * 1.4.4 优化代码
 * 1.4.3 优化了InsertClass的首次插入操作。
 * 1.4.2 修改开源项目地址。
