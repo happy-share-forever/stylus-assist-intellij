@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>vip.guco.stylusassist</id>
     <name>Stylus Assist</name>
-    <version>2.3.1</version>
+    <version>2.3.2</version>
     <vendor email="gucovip@gmail.com" url="https://github.com/gucovip/stylus-assist">MaiYa</vendor>
 
     <description><![CDATA[
@@ -41,7 +41,7 @@
 
     <change-notes><![CDATA[
     <ul>
-        <li>2.3.1 提高兼容版本号</li>
+        <li>2.3.2 提高兼容版本号到 241.*</li>
         <li>2.3.0 feat: 2.3.0 由于 sdk 升级导致启动时的报错，最低兼容版本提升到 222(2022.2.5)</li>
         <li>2.2.0 feat: InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`</li>
         <li>2.1.2 chore: Just update version</li>
