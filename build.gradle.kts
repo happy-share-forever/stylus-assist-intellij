@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "vip.guco"
-version = "2.3.1"
+version = "2.3.2"
 
 // Configure project's dependencies
 repositories {
@@ -38,7 +38,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("222.*")
-        untilBuild.set("234.*")
+        untilBuild.set("241.*")
     }
 
     publishPlugin {
