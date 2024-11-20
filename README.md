@@ -19,6 +19,8 @@ windows: `Alt + insert`, Mac: `control + Enter`
 注意：可以在 keymap 中配置自己喜欢的快捷键，后续如果可以将默认自动设置好快捷键（InsertClass: command + \; PasteCss: control + option + v）。
 
 #### 最近更新
+* 2024.11.20  2.3.4 提高兼容版本号到 243.*
+* 2024.08.14  2.3.3 修正 GoCss 的选中范围 & 最低兼容版本提高到 242.*
 * 2024.01.31  2.3.2 提高兼容版本号到 241.*
 * 2023.09.01  2.3.0 由于 sdk 升级导致启动时的报错，最低兼容版本提升到 222(2022.2.5)
 * 2023.08.31  2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`
@@ -29,6 +31,7 @@ windows: `Alt + insert`, Mac: `control + Enter`
 ##### PS
 关于标准 class 名称是 .a-b-c 还是 .aBC 以往就一直存在争议，现在给出一些拙见：css modules 情况下，$style.xxx 驼峰更加符合编程思想同时也更加简洁；非 css modules 情况下，建议用 .a-b-c，另外 驼峰式 的 class 可以直接Ctrl/Command+鼠标左键 跳转到对应的 css class
 
+低于 241.*(2024.1.*) 以及更低版本的用户，可以下载 [2.3.2](https://plugins.jetbrains.com/plugin/download?rel=true&updateId=477705) 版本
 如果还想保持 .a-b-c 可以点击下载 [2.0.0](https://plugins.jetbrains.com/plugin/download?rel=true&updateId=131276) 版本
 
 #### 功能介绍
@@ -66,6 +69,8 @@ windows: `Alt + insert`, Mac: `control + Enter`
 QQ:11563928
 
 #### 更新日志
+* 2.3.4 提高兼容版本号到 243.*
+* 2.3.3 修正 GoCss 的选中范围 & 最低兼容版本提高到 242.*
 * 2.3.2 提高兼容版本号到 241.*
 * 2.3.0 由于 sdk 升级导致启动时的报错，最低兼容版本提升到 222(2022.2.5)
 * 2.2.0 InsertClass 如果检测到光标在 `"|"` 位置，则自动补充一个 `$style.`

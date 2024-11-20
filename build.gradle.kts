@@ -6,21 +6,26 @@ plugins {
     // Kotlin support
     id("org.jetbrains.kotlin.jvm") version "1.9.0"
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-    id("org.jetbrains.intellij") version "1.15.0"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "vip.guco"
-version = "2.3.2"
+version = "2.3.4"
 
 // Configure project's dependencies
 repositories {
     mavenCentral()
 }
 
+dependencies {
+    // Kotlin dependencies
+    implementation("commons-codec:commons-codec:1.9")
+}
+
 // Configure gradle-intellij-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-    version.set("2022.2.5")
+    version.set("2024.3")
     type.set("IC")
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(listOf(/* Plugin Dependencies */))
@@ -37,8 +42,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("222.*")
-        untilBuild.set("241.*")
+        sinceBuild.set("242")
+        untilBuild.set("243.*")
     }
 
     publishPlugin {

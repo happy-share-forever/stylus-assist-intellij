@@ -163,7 +163,7 @@ public class JumpAction extends AnAction {
         // 获取选择器
         SelectionModel selectionModel = editor.getSelectionModel();
         // 选择指定内容
-        selectionModel.setSelection(x.get(0), x.get(1) - 1);
+        selectionModel.setSelection(x.get(0) + 1, x.get(1) - 1);
         // 获取光标器
         CaretModel caretModel = editor.getCaretModel();
         // 光标位置移动到
