@@ -19,6 +19,7 @@ windows: `Alt + insert`, Mac: `control + Enter`
 注意：可以在 keymap 中配置自己喜欢的快捷键，后续如果可以将默认自动设置好快捷键（InsertClass: command + \; PasteCss: control + option + v）。
 
 #### 最近更新
+* 2025.10.10  2.4.0 升级 sdk 到2.x 版本，提高兼容版本到 259.*
 * 2024.11.20  2.3.4 提高兼容版本号到 243.*
 * 2024.08.14  2.3.3 修正 GoCss 的选中范围 & 最低兼容版本提高到 242.*
 * 2024.01.31  2.3.2 提高兼容版本号到 241.*
@@ -84,3 +85,66 @@ QQ:11563928
 #### 给我买杯咖啡 Buy me a coffee
 ![image](https://user-images.githubusercontent.com/13230237/128452500-292addd6-8bd6-42f1-aa9f-547341b0cb1e.png)
 
+
+
+---
+
+## 开发者指南：使用本地已安装的 IDE 启动插件，避免下载副本
+
+团队成员可以通过以下任一方式配置本地 IDE 路径：
+
+### 方式 1：环境变量（推荐）
+```bash
+# macOS/Linux
+export INTELLIJ_PATH="/Applications/IntelliJ IDEA.app"
+# 或者使用其他 JetBrains IDE
+export INTELLIJ_PATH="/Applications/WebStorm.app"
+export INTELLIJ_PATH="/Applications/PyCharm.app"
+
+# Windows
+set INTELLIJ_PATH="C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition"
+```
+
+### 方式 2：命令行参数（支持波浪号路径）
+```bash
+# macOS - 使用波浪号相对路径（推荐）
+./gradlew runIde -PplatformPath="~/Applications/WebStorm.app"
+./gradlew runIde -PplatformPath="~/Applications/IntelliJ IDEA.app"
+
+# 或者使用绝对路径
+./gradlew runIde -PplatformPath="/Applications/IntelliJ IDEA.app"
+
+# Windows  
+./gradlew runIde -PplatformPath="C:/Program Files/JetBrains/IntelliJ IDEA"
+# Linux
+./gradlew runIde -PplatformPath="/path/to/idea-IU"
+```
+
+### 方式 3：本地配置文件（支持波浪号路径）
+在 `gradle.properties` 中配置：
+```properties
+# 使用波浪号相对路径（推荐，团队通用）
+platformPath=~/Applications/WebStorm.app
+# 或者其他 IDE
+platformPath=~/Applications/IntelliJ IDEA.app
+platformPath=~/Applications/PyCharm.app
+
+# 也可以使用绝对路径
+platformPath=/Applications/IntelliJ IDEA.app
+```
+
+或者创建 `gradle-local.properties` 文件（不会提交到 git）：
+```properties
+platformPath=~/Applications/WebStorm.app
+```
+
+### 自动回退
+如果未配置上述参数，将自动下载 IntelliJ IDEA Community Edition 2024.3。
+
+### 支持的 IDE
+- IntelliJ IDEA Ultimate/Community
+- WebStorm
+- PyCharm  
+- 其他 JetBrains IDE
+
+只需把路径指向对应 IDE 安装目录即可。

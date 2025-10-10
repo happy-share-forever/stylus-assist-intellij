@@ -36,7 +36,7 @@ public class JumpAction extends AnAction {
         if (anActionEvent.getProject() == null) return;
         // TODO: insert action logic here
         //获取当前的编辑者
-        final Editor editor = anActionEvent.getRequiredData(CommonDataKeys.EDITOR);
+        final Editor editor = anActionEvent.getData(CommonDataKeys.EDITOR);
         //获取当前的文件
         PsiFile currentPsiFile = anActionEvent.getData(LangDataKeys.PSI_FILE);
         if (currentPsiFile == null) return;
@@ -46,6 +46,7 @@ public class JumpAction extends AnAction {
         //获取文件类型
         String currentFileType = currentPsiFileName.split("\\.")[1].toLowerCase();
         //获取当前选择的文本
+        assert editor != null;
         final SelectionModel selectionModel = editor.getSelectionModel();
         String selectedText = selectionModel.getSelectedText();
 

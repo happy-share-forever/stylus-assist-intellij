@@ -1,5 +1,20 @@
-.gradle
-.idea
-build
-local.properties
-node_modules
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+
+# 本地配置文件（包含个人路径设置）
+gradle-local.properties
+
+# macOS
+.DS_Store
+
+# 其他
+*.log
