@@ -1,4 +1,5 @@
 import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.command.WriteCommandAction;
@@ -6,6 +7,7 @@ import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -19,9 +21,10 @@ import java.util.List;
 public class InsertAction extends AnAction {
 
     @Override
-    public void actionPerformed(AnActionEvent anActionEvent) {
+    public void actionPerformed(@NotNull AnActionEvent anActionEvent) {
         // TODO: insert action logic here
-        final Editor editor = anActionEvent.getRequiredData(CommonDataKeys.EDITOR);
+        final Editor editor = anActionEvent.getData(CommonDataKeys.EDITOR);
+        assert editor != null;
         Document document = editor.getDocument();
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         Transferable content = clipboard.getContents(null);//从系统剪切板中获取数据

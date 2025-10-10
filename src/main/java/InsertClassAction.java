@@ -17,7 +17,7 @@ public class InsertClassAction extends AnAction {
     public void actionPerformed(AnActionEvent anActionEvent) {
         if (anActionEvent.getProject() == null) return;
         //获取当前的编辑器
-        final Editor editor = anActionEvent.getRequiredData(CommonDataKeys.EDITOR);
+        final Editor editor = anActionEvent.getData(CommonDataKeys.EDITOR);
 
         //获取当前的文件
         PsiFile currentPsiFile = anActionEvent.getData(LangDataKeys.PSI_FILE);
